@@ -151,7 +151,9 @@ ws.ChildRemoved:Connect(function(gmm)
 end)
 end)
     
-    
+   b:Button("Chat Bypass",function()
+    loadstring(game:HttpGet("https://the-shed.xyz/roblox/scripts/ChatBypass", true))()
+end)
 
 d:Button("CircleVisability",function()
     getgenv().SelectedPart = "Head"
