@@ -60,8 +60,6 @@ local f = w:CreateFolder("ESP")
 
 local c = w:CreateFolder("Character")
 
-local g = w:CreateFolder("GodMode")
-
 local z = w:CreateFolder("Teleports")
 
 local x = w:CreateFolder("HBE")
@@ -75,85 +73,7 @@ local GameOverAgainllilli1iIil1l111i11 = assert local GameOverAgainl11illliliii1
 end)
 
 
-
-
-g:Button("GodMode",function()
-local lp = game.Players.LocalPlayer
-local pn = lp.Name
-local player = game.Players.LocalPlayer
-    if lp.PlayerGui.ScreenGui.UI.Target.Visible == true then 
-        local target = lp.PlayerGui.ScreenGui.UI.Target.TargetText.Text
-if player.Character then
-if player.Character:FindFirstChild("Humanoid") then
-player.Character.Humanoid.Name = "1"
-end
-local l = player.Character["1"]:Clone()
-l.Parent = player.Character
-l.Name = "Humanoid"; wait(0.1)
-player.Character["1"]:Destroy()
-workspace.CurrentCamera.CameraSubject = player.Character.Humanoid
-player.Character.Animate.Disabled = true; wait(0.1)
-player.Character.Animate.Disabled = false
-end
-end
-end)
     
-    
-    
-
-g:Button("AutoGod",function()
-sg = game:GetService("StarterGui")
-function godMode()
-local player = game.Players.LocalPlayer
-if player.Character then
-if player.Character:FindFirstChild("Humanoid") then
-player.Character.Humanoid.Name = "1"
-end
-local l = player.Character["1"]:Clone()
-l.Parent = player.Character
-l.Name = "Humanoid"; wait(0.1)
-player.Character["1"]:Destroy()
-workspace.CurrentCamera.CameraSubject = player.Character.Humanoid
-player.Character.Animate.Disabled = true; wait(0.1)
-player.Character.Animate.Disabled = false
-end
-print("finished.")
-end
-function countDown()
-    time = 9
-    for i = 1,8 do 
-        time = time - 1 
-        sg:SetCore("SendNotification",{
-            Title = "GodMode";
-            Text = "GodMode Turning On In" .. " " .. time
-        })
-        wait(1)
-    end 
-end
-local ws = game:GetService("Workspace")
-ws.ChildAdded:Connect(function(gm)
-    if gm.Name == "GameMap" then 
-        countDown()
-        godMode() 
-        sg:SetCore("SendNotification",{
-            Title = "GodMode";
-            Text = "GodMode Activated"
-        })
-    end 
-end) 
-ws.ChildRemoved:Connect(function(gmm)
-    if gmm.Name == "GameMap" then 
-        sg:SetCore("SendNotification",{
-            Title = "GodMode";
-            Text = "GodMode Will Be Reactivated Soon"
-        })
-    end 
-end)
-end)
-    
-   b:Button("Chat Bypass",function()
-    loadstring(game:HttpGet("https://the-shed.xyz/roblox/scripts/ChatBypass", true))()
-end)
 
 d:Button("CircleVisability",function()
     getgenv().SelectedPart = "Head"
@@ -185,8 +105,9 @@ b:Button("ServerHop",function()
     end
 end)
 
-
-
+b:Button("Chat Bypass",function()
+    loadstring(game:HttpGet("https://the-shed.xyz/roblox/scripts/ChatBypass", true))()
+end)
 b:Button("Rejoin",function()
 local ts = game:GetService("TeleportService")
 
@@ -387,3 +308,4 @@ h:Label("Made by i3eal#8186",{
    TextColor = Color3.fromRGB(255,255,255); -- Self Explanatory
    BgColor = Color3.fromRGB(69,69,69); -- Self Explanatory
 })
+
