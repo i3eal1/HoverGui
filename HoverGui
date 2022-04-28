@@ -148,6 +148,43 @@ c:Button("Reset",function()
     print("FOV Reset")
 end)
 
+b:Button("Stab Aura",function()
+   local Player = game:GetService("Players").LocalPlayer
+local wS = game:GetService("Workspace")
+
+local ClosestPlayer = function()
+    local Closest = nil
+    local Distance = 9e9
+    for i, v in next, game:GetService("Players"):GetPlayers() do
+        if v.Name ~= Player.Name then
+            if wS[v.Name] and wS[v.Name]:FindFirstChild("Humanoid") and wS[v.Name]:FindFirstChild("Humanoid").Health ~= 0 then
+                local Magnitude = (Player.Character.Head.Position - wS[v.Name].Head.Position).Magnitude
+                if Magnitude < Distance then
+                    Closest = wS[v.Name]
+                    Distance = Magnitude
+                    end
+                end
+            end
+        end
+    return Closest
+end
+
+_G.Toggle = true
+spawn(function()
+    while wait() do
+        if _G.Toggle == true then
+            repeat wait() until Player.Character:FindFirstChild("Head")
+            if Player:DistanceFromCharacter(ClosestPlayer().Head.Position) <= 6.5 then
+                mouse1click()
+                Player.PlayerScripts.localknifehandler.HitCheck:Fire(ClosestPlayer())
+                wait(.74)
+            else
+                wait()
+            end
+        end
+    end
+end)
+end)
 
 d:Toggle("SIlent Aim",function(bool)
     shared.toggle = bool
