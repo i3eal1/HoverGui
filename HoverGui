@@ -80,7 +80,7 @@ getgenv().TargetESP = false
 getgenv().FOV = 350
 getgenv().CircleVisibility = true
 getgenv().Distance = 500
-loadstring(game:HttpGet("https://raw.githubusercontent.com/i3eal1/Main-Assassin-/main/Main%20Assassin", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/i3eal1/Main-Assassin-/ab68d2f9e3ab350527cd1d27e64a73665c6ae174/Main%20Assassin", true))()
 end)
 
 b:DestroyGui()
@@ -103,9 +103,7 @@ b:Button("ServerHop",function()
     end
 end)
 
-b:Button("Chat Bypass",function()
-    loadstring(game:HttpGet("https://the-shed.xyz/roblox/scripts/ChatBypass", true))()
-end)
+
 b:Button("Rejoin",function()
 local ts = game:GetService("TeleportService")
 
